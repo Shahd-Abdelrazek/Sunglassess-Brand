@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop sunglasses for men, women and kids, bundles and sale items. Filter by frame shape, polarized lenses and your face shape.">
+  <title>SUN&amp;PALM</title>
+
+  <script>
+    try {
+      var theme = localStorage.getItem("sunpalm-theme");
+      if (theme !== "light" && theme !== "dark") theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (error) {}
+  </script>
+  <meta name="theme-color" content="#0f9292">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="images/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icons/icon-192.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css" id="bootstrap-css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;800&family=Dancing+Script:wght@500..700&family=Josefin+Sans:wght@300..700&family=Schibsted+Grotesk:wght@600..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="shop" data-title-key="nav.shop">
+  <header id="site-header"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-bg" style="background-image: url('images/pexels-glassesshop-gs-1317359316-27353347.jpg')"></div>
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="sun-breadcrumb">
+            <li><a href="index.html" data-i18n="nav.home"></a></li>
+            <li aria-current="page" data-i18n="nav.shop"></li>
+          </ol>
+        </nav>
+        <p class="kicker" data-i18n="shop.kicker"></p>
+        <h1 class="page-hero-title" data-i18n="shop.title"></h1>
+        <p class="page-hero-sub" data-i18n="shop.subtitle"></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-- Face-shape finder -->
+        <div class="finder-head reveal">
+          <button type="button" class="finder-toggle" id="finderToggle" aria-controls="finderPanel" aria-expanded="false">
+            <span class="finder-ic"><i class="fa-solid fa-face-smile" aria-hidden="true"></i></span>
+            <span><strong data-i18n="finder.title"></strong><small data-i18n="finder.subtitle"></small></span>
+            <i class="fa-solid fa-chevron-down finder-caret" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="finder-toggle quiz-toggle" data-quiz-open>
+            <span class="finder-ic"><i class="fa-solid fa-wand-sparkles" aria-hidden="true"></i></span>
+            <span><strong data-i18n="quiz.title"></strong><small data-i18n="quiz.subtitle"></small></span>
+            <i class="fa-solid fa-arrow-right flip-rtl finder-caret" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="finder-panel" id="finderPanel" hidden>
+          <p class="finder-q" data-i18n="finder.question"></p>
+          <div class="face-grid" role="group" data-i18n-aria="finder.question">
+            <button type="button" class="face-opt" data-face="oval" aria-pressed="false"><svg viewBox="0 0 60 70" aria-hidden="true"><ellipse cx="30" cy="35" rx="20" ry="28"/></svg><span data-i18n="face.oval"></span></button>
+            <button type="button" class="face-opt" data-face="round" aria-pressed="false"><svg viewBox="0 0 60 70" aria-hidden="true"><circle cx="30" cy="35" r="25"/></svg><span data-i18n="face.round"></span></button>
+            <button type="button" class="face-opt" data-face="square" aria-pressed="false"><svg viewBox="0 0 60 70" aria-hidden="true"><rect x="7" y="9" width="46" height="52" rx="9"/></svg><span data-i18n="face.square"></span></button>
+            <button type="button" class="face-opt" data-face="heart" aria-pressed="false"><svg viewBox="0 0 60 70" aria-hidden="true"><path d="M8,14 Q30,4 52,14 Q54,40 30,64 Q6,40 8,14Z"/></svg><span data-i18n="face.heart"></span></button>
+            <button type="button" class="face-opt" data-face="oblong" aria-pressed="false"><svg viewBox="0 0 60 70" aria-hidden="true"><rect x="13" y="3" width="34" height="64" rx="16"/></svg><span data-i18n="face.oblong"></span></button>
+          </div>
+          <p class="finder-tip" id="finderTip" hidden></p>
+          <div class="form-check form-switch finder-switch">
+            <input class="form-check-input" type="checkbox" id="matchOnly" disabled>
+            <label class="form-check-label" for="matchOnly" data-i18n="finder.matchOnly"></label>
+          </div>
+          <p class="finder-how"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <span data-i18n="finder.how"></span></p>
+        </div>
+
+        <div class="filter-bar reveal" role="group" data-i18n-aria="shop.category">
+          <button type="button" class="filter-pill" data-filter="all" aria-pressed="false" data-i18n="cat.all"></button>
+          <button type="button" class="filter-pill" data-filter="men" aria-pressed="false" data-i18n="cat.men"></button>
+          <button type="button" class="filter-pill" data-filter="women" aria-pressed="false" data-i18n="cat.women"></button>
+          <button type="button" class="filter-pill" data-filter="kids" aria-pressed="false" data-i18n="cat.kids"></button>
+          <button type="button" class="filter-pill" data-filter="bundles" aria-pressed="false" data-i18n="cat.bundles"></button>
+        </div>
+
+        <div class="shape-bar reveal" id="shapeBar" role="group" data-i18n-aria="spec.shape">
+          <button type="button" class="shape-chip all-shapes" data-shape="all" aria-pressed="false"><i class="fa-solid fa-border-all" aria-hidden="true"></i><span data-i18n="shape.all"></span></button>
+        </div>
+
+        <div class="tool-bar reveal">
+          <p class="result-count" id="resultCount"></p>
+          <div class="tool-group">
+            <label class="toggle-pill"><input type="checkbox" id="polarOnly"> <span><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i> <span data-i18n="spec.polarized"></span></span></label>
+            <label class="toggle-pill sale"><input type="checkbox" id="saleOnly"> <span><i class="fa-solid fa-tags" aria-hidden="true"></i> <span data-i18n="shop.onSale"></span></span></label>
+            <button type="button" class="wish-filter" id="wishFilter" aria-pressed="false"><i class="fa-solid fa-heart" aria-hidden="true"></i> <span data-i18n="wish.mine"></span> <span class="wish-count" id="wishCount">0</span></button>
+            <div class="dropdown">
+              <button type="button" class="sort-btn" id="sortBtn" data-bs-toggle="dropdown" data-bs-offset="0,8" aria-expanded="false" aria-haspopup="true">
+                <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+                <span class="sort-pre"><span data-i18n="sort.label"></span>:</span>
+                <strong id="sortCurrent" data-i18n="sort.default"></strong>
+                <i class="fa-solid fa-chevron-down sort-caret" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end sun-dropdown sort-menu" role="menu" aria-labelledby="sortBtn">
+                <li><button type="button" class="dropdown-item sort-option" data-sort="default" role="menuitemradio" aria-checked="false"><span class="sort-ic"><i class="fa-solid fa-star" aria-hidden="true"></i></span><span data-i18n="sort.default"></span><i class="fa-solid fa-check sort-check" aria-hidden="true"></i></button></li>
+                <li><button type="button" class="dropdown-item sort-option" data-sort="discount" role="menuitemradio" aria-checked="false"><span class="sort-ic"><i class="fa-solid fa-percent" aria-hidden="true"></i></span><span data-i18n="sort.discount"></span><i class="fa-solid fa-check sort-check" aria-hidden="true"></i></button></li>
+                <li><button type="button" class="dropdown-item sort-option" data-sort="priceAsc" role="menuitemradio" aria-checked="false"><span class="sort-ic"><i class="fa-solid fa-arrow-up-wide-short" aria-hidden="true"></i></span><span data-i18n="sort.priceAsc"></span><i class="fa-solid fa-check sort-check" aria-hidden="true"></i></button></li>
+                <li><button type="button" class="dropdown-item sort-option" data-sort="priceDesc" role="menuitemradio" aria-checked="false"><span class="sort-ic"><i class="fa-solid fa-arrow-down-wide-short" aria-hidden="true"></i></span><span data-i18n="sort.priceDesc"></span><i class="fa-solid fa-check sort-check" aria-hidden="true"></i></button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="search-info" id="searchInfo" hidden>
+          <span data-i18n="shop.resultsFor"></span> <strong id="searchTerm"></strong>
+          <button type="button" class="link-btn" id="clearSearch"><i class="fa-solid fa-xmark" aria-hidden="true"></i> <span data-i18n="shop.clear"></span></button>
+        </div>
+
+        <div class="product-grid" id="shopGrid"></div>
+        <p class="shop-empty" id="shopEmpty" hidden><i class="fa-regular fa-face-frown" aria-hidden="true"></i> <span data-i18n="shop.empty"></span></p>
+
+        <section class="family-section reveal" id="family" aria-labelledby="familyTitle">
+          <div class="family-head">
+            <div>
+              <p class="kicker" data-i18n="family.kicker"></p>
+              <h2 class="section-title small" id="familyTitle" data-i18n="family.title"></h2>
+              <p class="section-sub m-0" data-i18n="family.text"></p>
+            </div>
+            <span class="family-off big">−10%</span>
+          </div>
+          <div class="family-builder" id="familyBuilder">
+            <div class="family-row" data-role="dad">
+              <h3><span class="family-role-ic">👨</span> <span data-i18n="family.dad"></span></h3>
+              <div class="family-options"></div>
+            </div>
+            <div class="family-row" data-role="mom">
+              <h3><span class="family-role-ic">👩</span> <span data-i18n="family.mom"></span></h3>
+              <div class="family-options"></div>
+            </div>
+            <div class="family-row" data-role="kid">
+              <h3><span class="family-role-ic">🧒</span> <span data-i18n="family.kid"></span></h3>
+              <div class="family-options"></div>
+            </div>
+          </div>
+          <div class="family-summary">
+            <div class="family-thumbs" id="familyThumbs"></div>
+            <div class="family-prices">
+              <del id="familyFull">—</del>
+              <strong id="familyPrice">—</strong>
+              <small id="familySave"></small>
+            </div>
+            <button type="button" class="btn-sun" id="familyAdd" disabled><i class="fa-solid fa-cart-plus" aria-hidden="true"></i> <span data-i18n="family.add"></span></button>
+          </div>
+        </section>
+
+        <a class="designer-strip reveal" href="designer.html">
+          <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+          <span><strong data-i18n="shop.designTitle"></strong> <span data-i18n="shop.designText"></span></span>
+          <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/glasses.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/track.js"></script>
+  <script src="js/compare.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/family.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

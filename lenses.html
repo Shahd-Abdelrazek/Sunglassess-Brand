@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lens lab: compare lens tints on real scenes and see how polarized lenses remove glare.">
+  <title>SUN&amp;PALM</title>
+
+  <script>
+    try {
+      var theme = localStorage.getItem("sunpalm-theme");
+      if (theme !== "light" && theme !== "dark") theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (error) {}
+  </script>
+  <meta name="theme-color" content="#0f9292">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="images/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icons/icon-192.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css" id="bootstrap-css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;800&family=Dancing+Script:wght@500..700&family=Josefin+Sans:wght@300..700&family=Schibsted+Grotesk:wght@600..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="lenses" data-title-key="lab.nav">
+  <header id="site-header"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-bg" style="background-image: url('images/scenes/water.jpg')"></div>
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="sun-breadcrumb">
+            <li><a href="index.html" data-i18n="nav.home"></a></li>
+            <li aria-current="page" data-i18n="lab.nav"></li>
+          </ol>
+        </nav>
+        <p class="kicker" data-i18n="lab.kicker"></p>
+        <h1 class="page-hero-title" data-i18n="lab.title"></h1>
+        <p class="page-hero-sub" data-i18n="lab.subtitle"></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <div class="lab-scenes reveal" role="group" data-i18n-aria="lab.scene"><button type="button" class="lab-scene" data-scene="water" aria-pressed="false"><span data-i18n="lab.scene.water"></span></button><button type="button" class="lab-scene" data-scene="beach" aria-pressed="false"><span data-i18n="lab.scene.beach"></span></button><button type="button" class="lab-scene" data-scene="road" aria-pressed="false"><span data-i18n="lab.scene.road"></span></button><button type="button" class="lab-scene" data-scene="snow" aria-pressed="false"><span data-i18n="lab.scene.snow"></span></button></div>
+            <div class="lab-stage reveal" id="labStage" dir="ltr">
+              <div class="lab-layer lab-naked"><span class="lab-glare"></span></div>
+              <div class="lab-layer lab-through"><span class="lab-tint"></span><span class="lab-glare"></span></div>
+              <span class="lab-divider" aria-hidden="true"><i class="fa-solid fa-arrows-left-right"></i></span>
+              <span class="lab-label left" data-i18n="lab.naked"></span>
+              <span class="lab-label right" id="labRightLabel"></span>
+              <input type="range" class="lab-range" id="labSplit" min="0" max="100" value="50" data-i18n-aria="lab.drag">
+            </div>
+            <p class="try-hint"><i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i> <span data-i18n="lab.hint"></span></p>
+          </div>
+          <div class="col-lg-4">
+            <aside class="lab-panel reveal">
+              <p class="side-label" data-i18n="lab.pick"></p>
+              <div class="lab-lenses" id="labLenses"></div>
+              <div class="form-check form-switch extra-switch mt-3">
+                <input class="form-check-input" type="checkbox" id="labPolar" checked>
+                <label class="form-check-label" for="labPolar"><strong data-i18n="design.polarized"></strong><small data-i18n="lab.polarHint"></small></label>
+              </div>
+              <div class="lab-info">
+                <h3 id="labLensName"></h3>
+                <p id="labLensText"></p>
+                <p class="lab-cat"><span class="lab-cat-badge" id="labCategory"></span> <span id="labCategoryText"></span></p>
+                <p class="side-label mb-2" data-i18n="lab.bestFor"></p>
+                <div class="lab-best" id="labBest"></div>
+              </div>
+              <a class="btn-sun w-100 justify-content-center" id="labDesign" href="designer.html"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> <span data-i18n="lab.design"></span></a>
+              <a class="btn-outline-sun w-100 mt-2" href="shop.html?polarized=1"><span data-i18n="uv.shopPolarized"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></a>
+            </aside>
+          </div>
+        </div>
+        <a class="designer-strip lab-strip reveal" href="news.html#post2">
+          <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+          <span><strong data-i18n="news.post2.title"></strong> <span data-i18n="lab.readMore"></span></span>
+          <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/glasses.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/track.js"></script>
+  <script src="js/lenslab.js"></script>
+  <script src="js/compare.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

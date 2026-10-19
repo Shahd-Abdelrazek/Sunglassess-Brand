@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read what customers say about our sunglasses and share your own review.">
+  <title>SUN&amp;PALM</title>
+
+  <script>
+    try {
+      var theme = localStorage.getItem("sunpalm-theme");
+      if (theme !== "light" && theme !== "dark") theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (error) {}
+  </script>
+  <meta name="theme-color" content="#0f9292">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="images/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icons/icon-192.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css" id="bootstrap-css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;800&family=Dancing+Script:wght@500..700&family=Josefin+Sans:wght@300..700&family=Schibsted+Grotesk:wght@600..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="reviews" data-title-key="nav.reviews">
+  <header id="site-header"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-bg" style="background-image: url('images/pexels-umutsrln-31896870.jpg')"></div>
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="sun-breadcrumb">
+            <li><a href="index.html" data-i18n="nav.home"></a></li>
+            <li aria-current="page" data-i18n="nav.reviews"></li>
+          </ol>
+        </nav>
+        <p class="kicker" data-i18n="fb.kicker"></p>
+        <h1 class="page-hero-title" data-i18n="fb.title"></h1>
+        <p class="page-hero-sub" data-i18n="fb.subtitle"></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="rating-summary reveal" id="ratingSummary">
+              <p class="side-label" data-i18n="fb.average"></p>
+              <div class="avg-number" data-avg>0</div>
+              <div data-avg-stars></div>
+              <p class="avg-count"><span data-count>0</span> <span data-i18n="fb.reviews"></span></p>
+              <div class="bars">
+                <div class="bar-row" data-bar="5"><span>5 <i class="fa-solid fa-star" aria-hidden="true"></i></span><div class="bar"><div class="bar-fill"></div></div><span class="bar-count">0</span></div><div class="bar-row" data-bar="4"><span>4 <i class="fa-solid fa-star" aria-hidden="true"></i></span><div class="bar"><div class="bar-fill"></div></div><span class="bar-count">0</span></div><div class="bar-row" data-bar="3"><span>3 <i class="fa-solid fa-star" aria-hidden="true"></i></span><div class="bar"><div class="bar-fill"></div></div><span class="bar-count">0</span></div><div class="bar-row" data-bar="2"><span>2 <i class="fa-solid fa-star" aria-hidden="true"></i></span><div class="bar"><div class="bar-fill"></div></div><span class="bar-count">0</span></div><div class="bar-row" data-bar="1"><span>1 <i class="fa-solid fa-star" aria-hidden="true"></i></span><div class="bar"><div class="bar-fill"></div></div><span class="bar-count">0</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <form class="feedback-form reveal" id="feedbackForm" novalidate>
+              <h2 class="card-title" data-i18n="fb.formTitle"></h2>
+              <div class="mb-3">
+                <span class="form-label d-block" data-i18n="fb.rating"></span>
+                <div class="star-input">
+                  <input type="radio" name="rating" id="star5" value="5"><label for="star5" aria-label="5/5"><i class="fa-solid fa-star" aria-hidden="true"></i></label>
+<input type="radio" name="rating" id="star4" value="4"><label for="star4" aria-label="4/5"><i class="fa-solid fa-star" aria-hidden="true"></i></label>
+<input type="radio" name="rating" id="star3" value="3"><label for="star3" aria-label="3/5"><i class="fa-solid fa-star" aria-hidden="true"></i></label>
+<input type="radio" name="rating" id="star2" value="2"><label for="star2" aria-label="2/5"><i class="fa-solid fa-star" aria-hidden="true"></i></label>
+<input type="radio" name="rating" id="star1" value="1"><label for="star1" aria-label="1/5"><i class="fa-solid fa-star" aria-hidden="true"></i></label>
+                </div>
+              </div>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label class="form-label" for="reviewName"><span data-i18n="form.name"></span> <span class="req">*</span></label>
+                  <input class="form-control sun-input" id="reviewName" name="reviewName" maxlength="40" required>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label" for="reviewItem" data-i18n="fb.item"></label>
+                  <select class="form-select sun-input" id="reviewItem" name="reviewItem">
+                    <option value="men" data-i18n="cat.men"></option>
+                    <option value="women" data-i18n="cat.women"></option>
+                    <option value="kids" data-i18n="cat.kids"></option>
+                    <option value="bundles" data-i18n="cat.bundles"></option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="reviewText"><span data-i18n="fb.text"></span> <span class="req">*</span></label>
+                  <textarea class="form-control sun-input" id="reviewText" name="reviewText" rows="4" maxlength="400" required data-i18n-placeholder="fb.textPh"></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn-sun mt-4"><i class="fa-solid fa-paper-plane flip-rtl" aria-hidden="true"></i> <span data-i18n="fb.submit"></span></button>
+            </form>
+          </div>
+        </div>
+
+        <div class="review-grid mt-5" id="reviewList"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/glasses.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/track.js"></script>
+  <script src="js/compare.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

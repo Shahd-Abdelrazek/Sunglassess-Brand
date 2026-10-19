@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sunglasses for men, women and kids: UV400 and polarized lenses, design your own pair, try it on with your camera and order on WhatsApp.">
+  <title>SUN&amp;PALM</title>
+
+  <script>
+    try {
+      var theme = localStorage.getItem("sunpalm-theme");
+      if (theme !== "light" && theme !== "dark") theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (error) {}
+  </script>
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+  </script>
+  <meta name="theme-color" content="#0f9292">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="images/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icons/icon-192.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css" id="bootstrap-css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;800&family=Dancing+Script:wght@500..700&family=Josefin+Sans:wght@300..700&family=Schibsted+Grotesk:wght@600..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="home">
+  <header id="site-header"></header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="1"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="2"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/pexels-asim-razan-343717.jpg" alt="" class="hero-img hero-img-right">
+            <div class="hero-caption">
+              <p class="hero-kicker" data-i18n="hero.kicker1"></p>
+              <h1 class="hero-title" data-i18n="hero.title1"></h1>
+              <p class="hero-text" data-i18n="hero.text1"></p>
+              <div class="hero-actions">
+                <a class="btn-sun" href="shop.html"><span data-i18n="hero.shop"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></a>
+                <a class="btn-glass" href="designer.html"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> <span data-i18n="nav.designer"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/pexels-guillermo-berlin-1524368912-31836776.jpg" alt="" class="hero-img">
+            <div class="hero-caption">
+              <p class="hero-kicker" data-i18n="hero.kicker2"></p>
+              <h2 class="hero-title" data-i18n="hero.title2"></h2>
+              <p class="hero-text" data-i18n="hero.text2"></p>
+              <div class="hero-actions">
+                <a class="btn-sun" href="shop.html#women"><span data-i18n="hero.shopWomen"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></a>
+                <a class="btn-glass" href="designer.html#tryon"><i class="fa-solid fa-camera" aria-hidden="true"></i> <span data-i18n="tryon.cta"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/pexels-rndiid-27309328.jpg" alt="" class="hero-img">
+            <div class="hero-caption">
+              <p class="hero-kicker" data-i18n="hero.kicker3"></p>
+              <h2 class="hero-title" data-i18n="hero.title3"></h2>
+              <p class="hero-text" data-i18n="hero.text3"></p>
+              <div class="hero-actions">
+                <a class="btn-sun" href="shop.html#kids"><span data-i18n="hero.shopKids"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" data-i18n-aria="slider.prev">
+          <span class="hero-arrow"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" data-i18n-aria="slider.next">
+          <span class="hero-arrow"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Services strip -->
+    <section class="services">
+      <div class="container">
+        <div class="services-grid">
+          <div class="service"><span class="service-ic"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></span><div><h3 data-i18n="service.delivery"></h3><p data-i18n="service.deliveryText"></p></div></div>
+          <div class="service"><span class="service-ic"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span><div><h3 data-i18n="service.uv"></h3><p data-i18n="service.uvText"></p></div></div>
+          <div class="service"><span class="service-ic"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i></span><div><h3 data-i18n="service.returns"></h3><p data-i18n="service.returnsText"></p></div></div>
+          <div class="service"><span class="service-ic"><i class="fa-solid fa-headset" aria-hidden="true"></i></span><div><h3 data-i18n="service.support"></h3><p data-i18n="service.supportText"></p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collections -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker" data-i18n="home.collectionsKicker"></p>
+          <h2 class="section-title" data-i18n="home.collections"></h2>
+        </div>
+        <div class="collection-grid">
+          <a class="collection-tile reveal" href="shop.html#men">
+            <img src="images/pexels-bymuratisikofficial-31906962.jpg" alt="" loading="lazy">
+            <div class="collection-text"><h3 data-i18n="cat.men"></h3><span><span data-i18n="hero.shop"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></span></div>
+          </a>
+          <a class="collection-tile reveal" href="shop.html#women">
+            <img src="images/pexels-abdoo-31907404.jpg" alt="" loading="lazy">
+            <div class="collection-text"><h3 data-i18n="cat.women"></h3><span><span data-i18n="hero.shop"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></span></div>
+          </a>
+          <a class="collection-tile reveal" href="shop.html#kids">
+            <img src="images/pexels-bertellifotografia-30464387.jpg" alt="" loading="lazy">
+            <div class="collection-text"><h3 data-i18n="cat.kids"></h3><span><span data-i18n="hero.shop"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Smart tools -->
+    <section class="section tools-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker" data-i18n="tools.kicker"></p>
+          <h2 class="section-title" data-i18n="tools.title"></h2>
+        </div>
+        <div class="tools-grid">
+          <button type="button" class="tool-card reveal" data-quiz-open>
+            <span class="tool-ic"><i class="fa-solid fa-wand-sparkles" aria-hidden="true"></i></span>
+            <h3 data-i18n="quiz.title"></h3><p data-i18n="tools.quiz"></p>
+            <span class="read-more"><span data-i18n="tools.start"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></span>
+          </button>
+          <a class="tool-card reveal" href="designer.html#tryon">
+            <span class="tool-ic"><i class="fa-solid fa-face-smile-beam" aria-hidden="true"></i></span>
+            <h3 data-i18n="tracking.auto"></h3><p data-i18n="tools.tryon"></p>
+            <span class="read-more"><span data-i18n="tryon.cta"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></span>
+          </a>
+          <a class="tool-card reveal" href="lenses.html">
+            <span class="tool-ic"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></span>
+            <h3 data-i18n="lab.nav"></h3><p data-i18n="tools.lab"></p>
+            <span class="read-more"><span data-i18n="tools.open"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></span>
+          </a>
+          <a class="tool-card reveal" href="shop.html#family">
+            <span class="tool-ic"><i class="fa-solid fa-people-roof" aria-hidden="true"></i></span>
+            <h3 data-i18n="family.title"></h3><p data-i18n="tools.family"></p>
+            <span class="read-more"><span data-i18n="tools.open"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trending -->
+    <section class="section trending">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker" data-i18n="home.trendingKicker"></p>
+          <h2 class="section-title" data-i18n="home.trending"></h2>
+        </div>
+        <div class="filter-bar reveal" role="group" data-i18n-aria="home.trending">
+          <button type="button" class="filter-pill" data-trend="all" data-i18n="cat.all"></button>
+          <button type="button" class="filter-pill" data-trend="men" data-i18n="cat.men"></button>
+          <button type="button" class="filter-pill" data-trend="women" data-i18n="cat.women"></button>
+          <button type="button" class="filter-pill" data-trend="kids" data-i18n="cat.kids"></button>
+        </div>
+        <div class="product-grid" id="trendingGrid"></div>
+        <div class="text-center mt-5"><a class="btn-outline-sun btn-lg-outline" href="shop.html"><span data-i18n="nav.allProducts"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></a></div>
+      </div>
+    </section>
+
+    <!-- Designer + try-on banner -->
+    <section class="cta-wrap">
+      <div class="container">
+        <a class="designer-cta reveal" href="designer.html">
+          <div>
+            <p class="kicker" data-i18n="home.ctaKicker"></p>
+            <h2 data-i18n="home.ctaTitle"></h2>
+            <p data-i18n="home.ctaText"></p>
+            <span class="btn-light-sun"><span data-i18n="home.ctaButton"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></span>
+          </div>
+          <div class="cta-art" aria-hidden="true">
+            <span class="cta-sun"></span>
+            <svg class="cta-glasses" viewBox="0 0 300 130"><g transform="translate(92 64)"><path d="M-48,-30 Q-50,-40 -36,-40 H34 Q48,-40 48,-26 Q48,10 26,34 Q10,48 -12,44 Q-44,36 -48,6 Z" fill="#1d2229" stroke="#fff" stroke-width="7"/></g><g transform="translate(208 64) scale(-1 1)"><path d="M-48,-30 Q-50,-40 -36,-40 H34 Q48,-40 48,-26 Q48,10 26,34 Q10,48 -12,44 Q-44,36 -48,6 Z" fill="#1d2229" stroke="#fff" stroke-width="7"/></g><path d="M136,48 Q150,34 164,48" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- UV index -->
+    <section class="section uv-section">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5 reveal">
+            <p class="kicker" data-i18n="uv.kicker"></p>
+            <h2 class="section-title small" data-i18n="uv.title"></h2>
+            <p class="lead-text" data-i18n="uv.text"></p>
+            <label class="uv-city-pick">
+              <i class="fa-solid fa-city" aria-hidden="true"></i>
+              <span class="visually-hidden" data-i18n="uv.cityLabel"></span>
+              <select class="form-select sun-input" id="uvCity" data-i18n-aria="uv.cityLabel"></select>
+            </label>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="btn-outline-sun" id="uvLocate"><i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i> <span data-i18n="uv.locate"></span></button>
+              <a class="btn-outline-sun" href="lenses.html"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i> <span data-i18n="lab.nav"></span></a>
+            </div>
+            <p class="uv-note" data-i18n="uv.note"></p>
+          </div>
+          <div class="col-lg-7 reveal">
+            <div class="uv-card" id="uvWidget" data-level="low">
+              <div id="uvResult" aria-live="polite"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deals & bundles -->
+    <section class="section deals">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker" data-i18n="home.dealsKicker"></p>
+          <h2 class="section-title" data-i18n="home.deals"></h2>
+        </div>
+        <div class="product-grid" id="dealsGrid"></div>
+      </div>
+    </section>
+
+    <!-- Reviews slider -->
+    <section class="section reviews-home">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker" data-i18n="fb.kicker"></p>
+          <h2 class="section-title" data-i18n="fb.homeTitle"></h2>
+        </div>
+        <div class="review-slider" id="reviewSlider">
+          <button type="button" class="slider-arrow prev" data-slide="-1" data-i18n-aria="slider.prev"><i class="fa-solid fa-chevron-left flip-rtl" aria-hidden="true"></i></button>
+          <div class="slider-viewport">
+            <div class="review-track" id="reviewList"></div>
+          </div>
+          <button type="button" class="slider-arrow next" data-slide="1" data-i18n-aria="slider.next"><i class="fa-solid fa-chevron-right flip-rtl" aria-hidden="true"></i></button>
+        </div>
+        <div class="slider-dots" id="reviewDots"></div>
+        <div class="text-center mt-4"><a class="btn-outline-sun" href="reviews.html"><i class="fa-solid fa-pen" aria-hidden="true"></i> <span data-i18n="fb.writeCta"></span></a></div>
+      </div>
+    </section>
+
+    <!-- Journal -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker" data-i18n="news.kicker"></p>
+          <h2 class="section-title" data-i18n="news.latest"></h2>
+        </div>
+        <div class="journal-grid">
+          <a class="journal-card reveal" href="news.html#post1">
+            <img src="images/pexels-ratul-pal-421897581-31900370.jpg" alt="" loading="lazy">
+            <div><span class="journal-tag" data-i18n="news.tag1"></span><h3 data-i18n="news.post1.title"></h3><p data-i18n="news.post1.lead"></p><span class="read-more"><span data-i18n="news.readMore"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></span></div>
+          </a>
+          <a class="journal-card reveal" href="news.html#post2">
+            <img src="images/pexels-joao-vitor-heinrichs-862489-8223469.jpg" alt="" loading="lazy">
+            <div><span class="journal-tag" data-i18n="news.tag2"></span><h3 data-i18n="news.post2.title"></h3><p data-i18n="news.post2.lead"></p><span class="read-more"><span data-i18n="news.readMore"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></span></div>
+          </a>
+          <a class="journal-card reveal" href="news.html#post3">
+            <img src="images/pexels-rndiid-27309328.jpg" alt="" loading="lazy">
+            <div><span class="journal-tag" data-i18n="news.tag3"></span><h3 data-i18n="news.post3.title"></h3><p data-i18n="news.post3.lead"></p><span class="read-more"><span data-i18n="news.readMore"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/glasses.js"></script>
+  <script src="js/glasses3d.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/track.js"></script>
+  <script src="js/uv.js"></script>
+  <script src="js/compare.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

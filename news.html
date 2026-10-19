@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sunglasses tips: choosing frames for your face, polarized versus UV400, and protecting kids' eyes.">
+  <title>SUN&amp;PALM</title>
+
+  <script>
+    try {
+      var theme = localStorage.getItem("sunpalm-theme");
+      if (theme !== "light" && theme !== "dark") theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (error) {}
+  </script>
+  <meta name="theme-color" content="#0f9292">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="images/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icons/icon-192.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css" id="bootstrap-css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;800&family=Dancing+Script:wght@500..700&family=Josefin+Sans:wght@300..700&family=Schibsted+Grotesk:wght@600..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="news" data-title-key="nav.news">
+  <header id="site-header"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-bg" style="background-image: url('images/pexels-olcayertem06-10508388.jpg')"></div>
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="sun-breadcrumb">
+            <li><a href="index.html" data-i18n="nav.home"></a></li>
+            <li aria-current="page" data-i18n="nav.news"></li>
+          </ol>
+        </nav>
+        <p class="kicker" data-i18n="news.kicker"></p>
+        <h1 class="page-hero-title" data-i18n="news.title"></h1>
+        <p class="page-hero-sub" data-i18n="news.subtitle"></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="news-list">
+          <article class="news-card reveal" id="post1">
+            <div class="news-img"><img src="images/pexels-ratul-pal-421897581-31900370.jpg" alt="" loading="lazy"></div>
+            <div class="news-body">
+              <p class="news-date"><i class="fa-solid fa-face-smile" aria-hidden="true"></i> <span data-i18n="news.tag1"></span> · <time datetime="2026-09-20"></time></p>
+              <h2 data-i18n="news.post1.title"></h2>
+              <div class="news-divider"></div>
+              <p class="news-desc" data-i18n="news.post1.lead"></p>
+              <div class="collapse" id="more1"><p class="news-desc" data-i18n="news.post1.body1"></p><p class="news-desc" data-i18n="news.post1.body2"></p></div>
+              <button type="button" class="read-toggle" data-bs-toggle="collapse" data-bs-target="#more1" aria-expanded="false" aria-controls="more1"><span class="more" data-i18n="news.readMore"></span><span class="less" data-i18n="news.readLess"></span> <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+            </div>
+          </article>
+          <article class="news-card reveal" id="post2">
+            <div class="news-img"><img src="images/pexels-joao-vitor-heinrichs-862489-8223469.jpg" alt="" loading="lazy"></div>
+            <div class="news-body">
+              <p class="news-date"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i> <span data-i18n="news.tag2"></span> · <time datetime="2026-08-14"></time></p>
+              <h2 data-i18n="news.post2.title"></h2>
+              <div class="news-divider"></div>
+              <p class="news-desc" data-i18n="news.post2.lead"></p>
+              <div class="collapse" id="more2"><p class="news-desc" data-i18n="news.post2.body1"></p><p class="news-desc" data-i18n="news.post2.body2"></p></div>
+              <button type="button" class="read-toggle" data-bs-toggle="collapse" data-bs-target="#more2" aria-expanded="false" aria-controls="more2"><span class="more" data-i18n="news.readMore"></span><span class="less" data-i18n="news.readLess"></span> <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+            </div>
+          </article>
+          <article class="news-card reveal" id="post3">
+            <div class="news-img"><img src="images/pexels-rndiid-27309328.jpg" alt="" loading="lazy"></div>
+            <div class="news-body">
+              <p class="news-date"><i class="fa-solid fa-children" aria-hidden="true"></i> <span data-i18n="news.tag3"></span> · <time datetime="2026-07-02"></time></p>
+              <h2 data-i18n="news.post3.title"></h2>
+              <div class="news-divider"></div>
+              <p class="news-desc" data-i18n="news.post3.lead"></p>
+              <div class="collapse" id="more3"><p class="news-desc" data-i18n="news.post3.body1"></p><p class="news-desc" data-i18n="news.post3.body2"></p></div>
+              <button type="button" class="read-toggle" data-bs-toggle="collapse" data-bs-target="#more3" aria-expanded="false" aria-controls="more3"><span class="more" data-i18n="news.readMore"></span><span class="less" data-i18n="news.readLess"></span> <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/glasses.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/track.js"></script>
+  <script src="js/compare.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

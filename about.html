@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Our story, what we stand for, open jobs and how we handle your data.">
+  <title>SUN&amp;PALM</title>
+
+  <script>
+    try {
+      var theme = localStorage.getItem("sunpalm-theme");
+      if (theme !== "light" && theme !== "dark") theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (error) {}
+  </script>
+  <meta name="theme-color" content="#0f9292">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="images/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icons/icon-192.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css" id="bootstrap-css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;800&family=Dancing+Script:wght@500..700&family=Josefin+Sans:wght@300..700&family=Schibsted+Grotesk:wght@600..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="about" data-title-key="nav.about">
+  <header id="site-header"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-bg" style="background-image: url('images/pexels-arkhod-85162625-8944696.jpg')"></div>
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="sun-breadcrumb">
+            <li><a href="index.html" data-i18n="nav.home"></a></li>
+            <li aria-current="page" data-i18n="nav.about"></li>
+          </ol>
+        </nav>
+        <p class="kicker" data-i18n="about.kicker"></p>
+        <h1 class="page-hero-title" data-i18n="about.title"></h1>
+        <p class="page-hero-sub" data-i18n="about.subtitle"></p>
+      </div>
+    </section>
+
+    <section class="section" id="story">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6 reveal">
+            <div class="story-art">
+              <img src="images/pexels-gerardo-jaasiel-rubio-lobato-537697707-18105549.jpg" alt="" class="story-img" loading="lazy">
+              <img src="images/badge-quality.png" alt="" class="story-badge" loading="lazy">
+            </div>
+          </div>
+          <div class="col-lg-6 reveal">
+            <p class="kicker" data-i18n="about.storyKicker"></p>
+            <h2 class="section-title small" data-i18n="about.storyTitle"></h2>
+            <p class="lead-text" data-i18n="about.story1"></p>
+            <p class="lead-text" data-i18n="about.story2"></p>
+            <div class="stat-row">
+              <div><strong>18+</strong><span data-i18n="about.statStyles"></span></div>
+              <div><strong>UV400</strong><span data-i18n="about.statUv"></span></div>
+              <div><strong>14</strong><span data-i18n="about.statDays"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section values-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker" data-i18n="about.valuesKicker"></p>
+          <h2 class="section-title" data-i18n="about.valuesTitle"></h2>
+        </div>
+        <div class="values-grid"><div class="value-card reveal"><span class="value-ic"><i class="fa-solid fa-sun" aria-hidden="true"></i></span><h3 data-i18n="about.value1"></h3><p data-i18n="about.value1Text"></p></div><div class="value-card reveal"><span class="value-ic"><i class="fa-solid fa-gem" aria-hidden="true"></i></span><h3 data-i18n="about.value2"></h3><p data-i18n="about.value2Text"></p></div><div class="value-card reveal"><span class="value-ic"><i class="fa-solid fa-children" aria-hidden="true"></i></span><h3 data-i18n="about.value3"></h3><p data-i18n="about.value3Text"></p></div><div class="value-card reveal"><span class="value-ic"><i class="fa-solid fa-leaf" aria-hidden="true"></i></span><h3 data-i18n="about.value4"></h3><p data-i18n="about.value4Text"></p></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="careers">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker" data-i18n="about.careersKicker"></p>
+          <h2 class="section-title" data-i18n="nav.careers"></h2>
+          <p class="section-sub" data-i18n="about.careersText"></p>
+        </div>
+        <div class="jobs-list"><div class="job-card reveal"><div><h3 data-i18n="about.job1"></h3><p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span data-i18n="about.job1Meta"></span></p></div><a class="btn-outline-sun" href="mailto:jobs@sunpalm.example?subject=Job%20application"><span data-i18n="about.apply"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></a></div><div class="job-card reveal"><div><h3 data-i18n="about.job2"></h3><p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span data-i18n="about.job2Meta"></span></p></div><a class="btn-outline-sun" href="mailto:jobs@sunpalm.example?subject=Job%20application"><span data-i18n="about.apply"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></a></div><div class="job-card reveal"><div><h3 data-i18n="about.job3"></h3><p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span data-i18n="about.job3Meta"></span></p></div><a class="btn-outline-sun" href="mailto:jobs@sunpalm.example?subject=Job%20application"><span data-i18n="about.apply"></span> <i class="fa-solid fa-arrow-right flip-rtl" aria-hidden="true"></i></a></div></div>
+      </div>
+    </section>
+
+    <section class="section privacy-section" id="privacy">
+      <div class="container">
+        <div class="privacy-card reveal">
+          <span class="value-ic"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+          <div>
+            <h2 class="card-title" data-i18n="about.privacyTitle"></h2>
+            <p data-i18n="about.privacy1"></p>
+            <p data-i18n="about.privacy2"></p>
+            <p data-i18n="about.privacy3"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/glasses.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/track.js"></script>
+  <script src="js/compare.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

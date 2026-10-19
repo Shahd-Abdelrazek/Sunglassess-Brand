@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact the shop, find our store on the map and read the frequently asked questions.">
+  <title>SUN&amp;PALM</title>
+
+  <script>
+    try {
+      var theme = localStorage.getItem("sunpalm-theme");
+      if (theme !== "light" && theme !== "dark") theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (error) {}
+  </script>
+  <meta name="theme-color" content="#0f9292">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="images/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icons/icon-192.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css" id="bootstrap-css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;800&family=Dancing+Script:wght@500..700&family=Josefin+Sans:wght@300..700&family=Schibsted+Grotesk:wght@600..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="contact" data-title-key="nav.contact">
+  <header id="site-header"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-bg" style="background-image: url('images/pexels-ratul-pal-421897581-31900370.jpg')"></div>
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="sun-breadcrumb">
+            <li><a href="index.html" data-i18n="nav.home"></a></li>
+            <li aria-current="page" data-i18n="nav.contact"></li>
+          </ol>
+        </nav>
+        <p class="kicker" data-i18n="contact.kicker"></p>
+        <h1 class="page-hero-title" data-i18n="contact.title"></h1>
+        <p class="page-hero-sub" data-i18n="contact.subtitle"></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="contact-card reveal">
+              <form id="contactForm" novalidate>
+                <h2 class="card-title" data-i18n="contact.formTitle"></h2>
+                <div class="row g-3">
+                  <div class="col-sm-6 field">
+                    <label class="form-label" for="cName"><span data-i18n="form.name"></span> <span class="req">*</span></label>
+                    <input class="form-control sun-input" id="cName" autocomplete="name" required>
+                  </div>
+                  <div class="col-sm-6 field">
+                    <label class="form-label" for="cEmail"><span data-i18n="form.email"></span> <span class="req">*</span></label>
+                    <input class="form-control sun-input" id="cEmail" type="email" autocomplete="email" required>
+                  </div>
+                  <div class="col-sm-6 field">
+                    <label class="form-label" for="cPhone" data-i18n="form.phone"></label>
+                    <input class="form-control sun-input" id="cPhone" type="tel" dir="ltr" autocomplete="tel">
+                  </div>
+                  <div class="col-sm-6 field">
+                    <label class="form-label" for="cTopic" data-i18n="contact.topic"></label>
+                    <select class="form-select sun-input" id="cTopic">
+                      <option data-i18n="contact.topicOrder"></option>
+                      <option data-i18n="contact.topicReturn"></option>
+                      <option data-i18n="contact.topicWholesale"></option>
+                      <option data-i18n="contact.topicOther"></option>
+                    </select>
+                  </div>
+                  <div class="col-12 field">
+                    <label class="form-label" for="cMessage"><span data-i18n="contact.message"></span> <span class="req">*</span></label>
+                    <textarea class="form-control sun-input" id="cMessage" rows="5" required></textarea>
+                  </div>
+                </div>
+                <div class="contact-actions">
+                  <button type="submit" class="btn-sun"><span data-i18n="contact.send"></span> <i class="fa-solid fa-paper-plane flip-rtl" aria-hidden="true"></i></button>
+                  <span class="req-note"><span class="req">*</span> <span data-i18n="contact.required"></span></span>
+                </div>
+              </form>
+              <div class="contact-success" id="contactSuccess" hidden>
+                <span class="success-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
+                <h2 data-i18n="contact.thanks"></h2>
+                <p data-i18n="contact.thanksText"></p>
+                <p class="demo-note" data-i18n="contact.demo"></p>
+                <button type="button" class="btn-outline-sun" id="contactAgain" data-i18n="contact.again"></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="contact-side reveal">
+              <div class="side-brand">
+                <img src="images/logo.png" alt="">
+                <div><h3>SUN&amp;PALM</h3><p data-i18n="footer.tagline"></p></div>
+              </div>
+              <ul class="side-list">
+                <li><span class="side-ic"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><div><strong data-i18n="contact.visit"></strong><small data-i18n="contact.address"></small></div></li>
+                <li><span class="side-ic"><i class="fa-solid fa-phone" aria-hidden="true"></i></span><div><strong data-i18n="form.phone"></strong><small><bdi>+20 100 000 0000</bdi></small></div></li>
+                <li><span class="side-ic"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span><div><strong data-i18n="form.email"></strong><small><bdi>hello@sunpalm.example</bdi></small></div></li>
+                <li><span class="side-ic"><i class="fa-solid fa-clock" aria-hidden="true"></i></span><div><strong data-i18n="contact.hours"></strong><small data-i18n="contact.hoursText"></small></div></li>
+              </ul>
+              <a class="btn-whatsapp w-100" href="#" data-wa-link target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> <span data-i18n="contact.whatsapp"></span></a>
+            </div>
+            <div class="map-card reveal">
+              <iframe title="Map" src="https://www.openstreetmap.org/export/embed.html?bbox=31.20%2C30.02%2C31.28%2C30.07&amp;layer=mapnik" loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker" data-i18n="faq.kicker"></p>
+          <h2 class="section-title" data-i18n="faq.title"></h2>
+        </div>
+        <div class="faq-wrap reveal">
+          <div class="accordion sun-accordion" id="faqList">
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faqHead1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1" data-i18n="faq.q1"></button>
+              </h3>
+              <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faqHead1" data-bs-parent="#faqList">
+                <div class="accordion-body" data-i18n="faq.a1"></div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faqHead2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2" data-i18n="faq.q2"></button>
+              </h3>
+              <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faqHead2" data-bs-parent="#faqList">
+                <div class="accordion-body" data-i18n="faq.a2"></div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faqHead3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3" data-i18n="faq.q3"></button>
+              </h3>
+              <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faqHead3" data-bs-parent="#faqList">
+                <div class="accordion-body" data-i18n="faq.a3"></div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faqHead4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4" data-i18n="faq.q4"></button>
+              </h3>
+              <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faqHead4" data-bs-parent="#faqList">
+                <div class="accordion-body" data-i18n="faq.a4"></div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faqHead5">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5" data-i18n="faq.q5"></button>
+              </h3>
+              <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faqHead5" data-bs-parent="#faqList">
+                <div class="accordion-body" data-i18n="faq.a5"></div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="faqHead6">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6" data-i18n="faq.q6"></button>
+              </h3>
+              <div id="faq6" class="accordion-collapse collapse" aria-labelledby="faqHead6" data-bs-parent="#faqList">
+                <div class="accordion-body" data-i18n="faq.a6"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/glasses.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/track.js"></script>
+  <script src="js/compare.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

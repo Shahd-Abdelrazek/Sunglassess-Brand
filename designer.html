@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Design your own sunglasses: frame shape, colour, lenses, polarized option, engraving and case. Try them on with your camera.">
+  <title>SUN&amp;PALM</title>
+
+  <script>
+    try {
+      var theme = localStorage.getItem("sunpalm-theme");
+      if (theme !== "light" && theme !== "dark") theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (error) {}
+  </script>
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+  </script>
+  <meta name="theme-color" content="#0f9292">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="images/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icons/icon-192.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css" id="bootstrap-css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;800&family=Dancing+Script:wght@500..700&family=Josefin+Sans:wght@300..700&family=Schibsted+Grotesk:wght@600..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-page="designer" data-title-key="nav.designer">
+  <header id="site-header"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-bg" style="background-image: url('images/pexels-kazys-photography-2151238955-31882325.jpg')"></div>
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="sun-breadcrumb">
+            <li><a href="index.html" data-i18n="nav.home"></a></li>
+            <li aria-current="page" data-i18n="nav.designer"></li>
+          </ol>
+        </nav>
+        <p class="kicker" data-i18n="design.kicker"></p>
+        <h1 class="page-hero-title" data-i18n="design.title"></h1>
+        <p class="page-hero-sub" data-i18n="design.subtitle"></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <p class="stock-note"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> <span data-i18n="design.stockNote"></span></p>
+            <div class="builder-steps">
+              <div class="step-card face-card">
+                <h2 class="step-title"><span class="step-num"><i class="fa-solid fa-face-smile" aria-hidden="true"></i></span><span data-i18n="finder.question"></span></h2>
+                <div class="face-pick-row">
+                  <button type="button" class="face-chip" data-face-pick="oval" aria-pressed="false" data-i18n="face.oval"></button>
+                  <button type="button" class="face-chip" data-face-pick="round" aria-pressed="false" data-i18n="face.round"></button>
+                  <button type="button" class="face-chip" data-face-pick="square" aria-pressed="false" data-i18n="face.square"></button>
+                  <button type="button" class="face-chip" data-face-pick="heart" aria-pressed="false" data-i18n="face.heart"></button>
+                  <button type="button" class="face-chip" data-face-pick="oblong" aria-pressed="false" data-i18n="face.oblong"></button>
+                </div>
+                <p class="finder-tip" id="faceHint" hidden></p>
+              </div>
+              <div class="step-card">
+                <h2 class="step-title"><span class="step-num">1</span><span data-i18n="design.stepShape"></span></h2>
+                <div class="opt-grid opt-grid-shape" id="optShape"></div>
+              </div>
+              <div class="step-card">
+                <h2 class="step-title"><span class="step-num">2</span><span data-i18n="design.stepSize"></span></h2>
+                <div class="opt-grid opt-grid-3" id="optSize"></div>
+              </div>
+              <div class="step-card">
+                <h2 class="step-title"><span class="step-num">3</span><span data-i18n="design.stepFrame"></span></h2>
+                <div class="opt-grid" id="optFrame"></div>
+              </div>
+              <div class="step-card">
+                <h2 class="step-title"><span class="step-num">4</span><span data-i18n="design.stepLens"></span></h2>
+                <div class="opt-grid" id="optLens"></div>
+                <div class="form-check form-switch extra-switch mt-3">
+                  <input class="form-check-input" type="checkbox" id="polInput">
+                  <label class="form-check-label" for="polInput"><strong data-i18n="design.polarized"></strong> <span class="opt-price">+<span id="polPrice"></span></span><small data-i18n="design.polHint"></small></label>
+                </div>
+              </div>
+              <div class="step-card rx-card" id="rxStep">
+                <h2 class="step-title"><span class="step-num"><i class="fa-solid fa-glasses" aria-hidden="true"></i></span><span data-i18n="rx.title"></span> <span class="opt-price">+<span id="rxPrice"></span></span></h2>
+                <p class="rx-intro" data-i18n="rx.intro"></p>
+                <div class="pill-group mb-3">
+                  <input type="radio" class="btn-check" name="rxMode" id="rxNone" value="none" checked><label class="pill-choice" for="rxNone" data-i18n="rx.none"></label>
+                  <input type="radio" class="btn-check" name="rxMode" id="rxManualMode" value="manual"><label class="pill-choice" for="rxManualMode"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> <span data-i18n="rx.manual"></span></label>
+                  <input type="radio" class="btn-check" name="rxMode" id="rxPhotoMode" value="photo"><label class="pill-choice" for="rxPhotoMode"><i class="fab fa-whatsapp" aria-hidden="true"></i> <span data-i18n="rx.photo"></span></label>
+                </div>
+                <div class="rx-manual" id="rxManual" hidden></div>
+                <p class="rx-note" id="rxPhotoNote" hidden><i class="fa-solid fa-camera" aria-hidden="true"></i> <span data-i18n="rx.photoHelp"></span></p>
+                <p class="rx-help"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> <span data-i18n="rx.help"></span></p>
+              </div>
+              <div class="step-card">
+                <h2 class="step-title"><span class="step-num">5</span><span data-i18n="design.stepCase"></span></h2>
+                <div class="opt-grid opt-grid-3" id="optCase"></div>
+              </div>
+              <div class="step-card">
+                <h2 class="step-title"><span class="step-num">6</span><span data-i18n="design.stepEngrave"></span></h2>
+                <label class="form-label" for="engraveInput"><span data-i18n="design.engraveLabel"></span> <span class="opt-price">+<span id="engravePrice"></span></span></label>
+                <input type="text" class="form-control sun-input engrave-input" id="engraveInput" data-i18n-placeholder="design.engravePh">
+                <small class="msg-count" id="engraveCount">0/14</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <aside class="preview-card">
+              <div class="preview-top">
+                <p class="side-label m-0"><span class="live-dot"></span><span data-i18n="design.preview"></span></p>
+                <div class="view-toggle" role="group" data-i18n-aria="view3d.cta">
+                  <button type="button" data-view="2d" class="active" aria-pressed="true">2D</button>
+                  <button type="button" data-view="3d" aria-pressed="false"><i class="fa-solid fa-cube" aria-hidden="true"></i> 3D</button>
+                  <span class="view-thumb" aria-hidden="true"></span>
+                </div>
+              </div>
+              <div class="design-stage" id="designStageBox">
+                <div class="design-3d" id="design3d" hidden>
+                  <p class="view3d-loading" id="view3dStatus"><span class="spinner-border spinner-border-sm" role="status"></span> <span data-i18n="view3d.loading"></span></p>
+                  <button type="button" class="view3d-reset" id="view3dReset" data-i18n-aria="view3d.reset"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i></button>
+                </div>
+                <span class="pol-badge" id="polBadge" hidden><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i> <span data-i18n="design.polarized"></span></span>
+                <div id="designStage"></div>
+                <div class="engrave-preview" id="engravePreview" hidden><span id="engraveText"></span></div>
+              </div>
+              <p class="view3d-hint" id="view3dHint" hidden><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> <span data-i18n="view3d.hint"></span></p>
+              <div class="design-price"><span data-i18n="cart.total"></span><strong id="designPrice"></strong></div>
+              <ul class="design-summary" id="designSummary"></ul>
+              <p class="design-warning" id="designWarning" hidden></p>
+              <button type="button" class="btn-sun w-100 justify-content-center" id="designAdd"><i class="fa-solid fa-cart-plus" aria-hidden="true"></i> <span data-i18n="design.add"></span></button>
+              <div class="share-row">
+                <button type="button" class="share-btn" id="designShare"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i> <span data-i18n="design.share"></span></button>
+                <button type="button" class="share-btn wa" id="designWhatsapp"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</button>
+                <button type="button" class="share-btn" id="designDownload"><i class="fa-solid fa-download" aria-hidden="true"></i> <span data-i18n="design.download"></span></button>
+              </div>
+              <div class="preview-links">
+                <a href="#tryon" class="btn-outline-sun"><i class="fa-solid fa-camera" aria-hidden="true"></i> <span data-i18n="tryon.cta"></span></a>
+                <button type="button" class="link-btn" id="designReset" data-i18n="design.reset"></button>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Virtual try-on -->
+    <section class="section tryon-section" id="tryon">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker" data-i18n="tryon.kicker"></p>
+          <h2 class="section-title" data-i18n="tryon.title"></h2>
+          <p class="section-sub" data-i18n="tryon.text"></p>
+        </div>
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-7">
+            <div class="try-stage" id="tryStage" data-mode="model">
+              <svg id="tryModel" class="try-model" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="skyBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfeeea"/><stop offset="1" stop-color="#ffe2c4"/></linearGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#skyBg)"/>
+                <circle cx="330" cy="60" r="34" fill="#ffc163" opacity="0.8"/>
+                <path d="M90,300 Q100,236 160,224 L240,224 Q300,236 310,300Z" fill="#0f9292"/>
+                <rect x="180" y="200" width="40" height="34" rx="12" fill="#e8b48e"/>
+                <ellipse cx="114" cy="152" rx="12" ry="20" fill="#e3a982"/>
+                <ellipse cx="286" cy="152" rx="12" ry="20" fill="#e3a982"/>
+                <ellipse cx="200" cy="150" rx="86" ry="100" fill="#f0c19c"/>
+                <path d="M112,128 Q108,40 200,44 Q292,40 288,128 Q270,82 200,84 Q132,82 112,128Z" fill="#3a2a22"/>
+                <path d="M146,124 Q165,116 184,124" stroke="#3a2a22" stroke-width="5" fill="none" stroke-linecap="round"/>
+                <path d="M216,124 Q235,116 254,124" stroke="#3a2a22" stroke-width="5" fill="none" stroke-linecap="round"/>
+                <ellipse cx="165" cy="145" rx="8" ry="6" fill="#3a2a22"/>
+                <ellipse cx="235" cy="145" rx="8" ry="6" fill="#3a2a22"/>
+                <path d="M200,150 Q196,176 206,180" stroke="#c98d68" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <path d="M174,204 Q200,222 226,204" stroke="#b5574a" stroke-width="5" fill="none" stroke-linecap="round"/>
+              </svg>
+              <video id="tryVideo" class="try-video" playsinline muted></video>
+              <img id="tryPhoto" class="try-photo" alt="">
+              <img id="tryGlasses" class="try-glasses" alt="" tabindex="0" draggable="false" data-i18n-aria="tryon.drag">
+            </div>
+            <p class="try-hint"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> <span data-i18n="tryon.hint"></span></p>
+          </div>
+          <div class="col-lg-5">
+            <div class="try-panel">
+              <p class="side-label" data-i18n="tryon.source"></p>
+              <div class="try-sources">
+                <button type="button" class="share-btn" id="tryCamera"><i class="fa-solid fa-video" aria-hidden="true"></i> <span data-i18n="tryon.camera"></span></button>
+                <label class="share-btn" for="tryUpload"><i class="fa-solid fa-image" aria-hidden="true"></i> <span data-i18n="tryon.upload"></span></label>
+                <input type="file" id="tryUpload" accept="image/*" hidden>
+                <button type="button" class="share-btn" id="tryModelBtn"><i class="fa-solid fa-user" aria-hidden="true"></i> <span data-i18n="tryon.model"></span></button>
+              </div>
+              <div class="form-check form-switch extra-switch auto-switch mt-3">
+                <input class="form-check-input" type="checkbox" id="tryAuto" checked>
+                <label class="form-check-label" for="tryAuto"><strong><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> <span data-i18n="tracking.auto"></span></strong><small data-i18n="tracking.autoHint"></small></label>
+              </div>
+              <p class="face-status" id="faceStatus" data-state="idle" aria-live="polite"></p>
+              <label class="form-label mt-2" for="trySize" data-i18n="tryon.size"></label>
+              <input type="range" class="form-range sun-range" id="trySize" min="20" max="90" value="46">
+              <label class="form-label mt-2" for="tryAngle" data-i18n="tryon.angle"></label>
+              <input type="range" class="form-range sun-range" id="tryAngle" min="-30" max="30" value="0">
+              <button type="button" class="btn-sun w-100 justify-content-center mt-3" id="trySnap"><i class="fa-solid fa-camera-retro" aria-hidden="true"></i> <span data-i18n="tryon.snap"></span></button>
+              <p class="try-privacy"><i class="fa-solid fa-lock" aria-hidden="true"></i> <span data-i18n="tracking.privacy"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/glasses.js"></script>
+  <script src="js/glasses3d.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/track.js"></script>
+  <script src="js/designer.js"></script>
+  <script src="js/compare.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/facetrack.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
